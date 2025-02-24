@@ -1,0 +1,28 @@
+
+@font-face {
+    font-family: Roboto;
+    src: url(/fontes/Roboto-Italic-VariableFont_wdth\,wght.ttf);
+}
+body {
+
+    font-family:Roboto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #FD0104; /* Fundo vermelho */
+    margin: 0;
+}
+
+.container {
+    margin-top: 245px;
+    text-align: center;
+    background: #FD0104;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+

@@ -1,0 +1,158 @@
+@font-face {
+    font-family: Roboto;
+    src: url(/fontes/Roboto-Italic-VariableFont_wdth,wght.ttf);
+}
+
+body {
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #FD0104;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 215px;
+    text-align: center;
+    background: #FD0104;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.banner h1 {
+    margin-top: 200px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.banner p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.bet-section {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.bet-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.bet-item:last-child {
+    border-bottom: none;
+}
+
+.bet-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.bet-item input {
+    font-size: 16px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.aaa {
+    margin-top: 20px;
+}
+
+/* Botão de Envio */
+button {
+    width: 50%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f00;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Botão desativado */
+button:hover {
+    background-color: #ccc;
+}
+
+.logo {
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 100px;
+        padding: 20px;
+        max-width: 90%;
+    }
+    .banner h1 {
+        font-size: 24px;
+        margin-top: 150px;
+    }
+    .bet-section {
+        max-width: 90%;
+    }
+    .bet-item img {
+        width: 80px;
+        height: 80px;
+    }
+    button {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 80px;
+        padding: 15px;
+        max-width: 100%;
+    }
+    .banner h1 {
+        font-size: 20px;
+        margin-top: 150px;
+    }
+    .bet-section {
+        width: 100%;
+        padding: 10px;
+    }
+    .bet-item img {
+        width: 60px;
+        height: 60px;
+    }
+    button {
+        width: 100%;
+    }
+}
+h1{
+    padding-top: 200px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação da Aposta</title>
+    <link rel="stylesheet" href="style-confirmacao.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Carregando dados da aposta...");
+
+            // Recupera os palpites do localStorage
+            const aposta1 = localStorage.getItem("objeto1") || "Não informado";
+            const aposta2 = localStorage.getItem("objeto2") || "Não informado";
+            const aposta3 = localStorage.getItem("objeto3") || "Não informado";
+
+            document.getElementById("aposta1").innerText = aposta1;
+            document.getElementById("aposta2").innerText = aposta2;
+            document.getElementById("aposta3").innerText = aposta3;
+        });
+    </script>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <div class="container">
+        <h1>CONFIRME AQUI SUA APOSTA!</h1>
+        <p class="subtitle">Confirm your prediction</p>
+
+        <div class="verifica">
+            <div class="bet-item">
+                <img src="/imagens/bola-tenis.png" alt="Bola de Tênis">
+                <p><span id="aposta1"></span></p>
+            </div>
+            <div class="bet-item">
+                <img src="/imagens/cavaquinho.png" alt="Cavaquinho">
+                <p><span id="aposta2"></span></p>
+            </div>
+            <div class="bet-item">
+                <img src="/imagens/drum_right_side_85.png" alt="Tambor">
+                <p><span id="aposta3"></span></p>
+            </div>
+        </div>
+
+        <h4>TIRE UMA PRINT DA TELA DO SEU CELULAR PARA REGISTRAR A SUA APOSTA.</h4>
+        <h5 class="subtitle">Take a screenshot of your phone to record your bet.</h5>
+    </div>
+
+    <div>
+        <button onclick="window.location.href = '/frontend/informacoes.html'" type="button" id="avançar">Avançar</button>
+    </div>  
+
+    <div class="aaa">
+        <img src="/imagens/logo-branca.png" alt="logo-superbet-peq" width="55px">
+    </div>
+</body>
+</html>

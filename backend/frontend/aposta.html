@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça sua Aposta</title>
+    <link rel="stylesheet" href="style-aposta.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Aposte em um número para cada item</h1>
+        <p>E concorra a prêmios incríveis no final do dia no stand da SuperBet</p>
+        <p class="subtitle">Bet on a number for each item and compete for amazing prizes at the end of the day at the SuperBet stand</p>
+
+        <form id="aposta-form">
+            <div class="bet-section"> 
+                <div class="bet-item">
+                    <img src="/imagens/bola-tenis.png" alt="Bola de Tênis">
+                    <input type="number" id="objeto1" placeholder="?" min="1" required>
+                </div>
+                <div class="bet-item">
+                    <img src="/imagens/cavaquinho.png" alt="Cavaquinho">
+                    <input type="number" id="objeto2" placeholder="?" min="1" required>
+                </div>
+                <div class="bet-item">
+                    <img src="/imagens/drum_right_side_85.png" alt="Tambor">
+                    <input type="number" id="objeto3" placeholder="?" min="1" required>
+                </div>
+            </div>
+
+            <button type="submit">Enviar Aposta</button>
+        </form>
+
+        <div class="logo">
+            <img src="/imagens/logo-branca.png" alt="Logo SuperBet" width="55px">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("JavaScript da Aposta carregado!");
+       
+            const apostaForm = document.getElementById("aposta-form");
+       
+            apostaForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+       
+                // Recupera os dados do sessionStorage
+                const cpf = sessionStorage.getItem("cpf");
+                const nome = sessionStorage.getItem("nome");
+                const email = sessionStorage.getItem("email");
+                const telefone = sessionStorage.getItem("telefone");
+                const esporte = sessionStorage.getItem("esporte");
+       
+                if (!cpf || !nome) {
+                    alert("Erro: Cadastro não encontrado. Volte e preencha seus dados.");
+                    window.location.href = "/";  // Redireciona para a página inicial se os dados não existirem
+                    return;
+                }
+       
+                console.log(`CPF recuperado: ${cpf}`);
+                console.log(`Nome recuperado: ${nome}`);
+                console.log(`Email recuperado: ${email}`);
+                console.log(`Telefone recuperado: ${telefone}`);
+                console.log(`Esporte recuperado: ${esporte}`);
+       
+                // Pega os valores da aposta digitada pelo usuário
+                const objeto1 = parseInt(document.getElementById("objeto1").value) || 0;
+                const objeto2 = parseInt(document.getElementById("objeto2").value) || 0;
+                const objeto3 = parseInt(document.getElementById("objeto3").value) || 0;
+
+                // Salvar os palpites no localStorage para a página de confirmação
+                localStorage.setItem("objeto1", objeto1);
+                localStorage.setItem("objeto2", objeto2);
+                localStorage.setItem("objeto3", objeto3);
+       
+                try {
+                    const response = await fetch("/api/palpite", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ cpf, nome, email, telefone, esporte, objeto1, objeto2, objeto3 })
+                    });
+       
+                    const resultado = await response.json();
+                    if (resultado.error) {
+                        alert(`Erro: ${resultado.error}`);
+                    } else {
+                        alert("Aposta registrada com sucesso!");
+                        window.location.href = "/confirmacaoaposta.html"; // Redireciona para a página de confirmação
+                    }
+                } catch (error) {
+                    console.error("Erro ao enviar aposta:", error);
+                    alert("Erro ao conectar ao servidor.");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
